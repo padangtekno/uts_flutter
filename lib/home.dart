@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:uts_flutter/dosen.dart';
+import 'package:uts_flutter/jadwal.dart';
+import 'package:uts_flutter/login.dart';
+import 'package:uts_flutter/mahasisw.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -87,10 +91,10 @@ class _HomeState extends State<Home> {
                 ),
               ),
               currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
                 child: FlutterLogo(
                   size: 50,
                 ),
-                backgroundColor: Colors.white,
               ),
             ),
             ListTile(
@@ -98,28 +102,42 @@ class _HomeState extends State<Home> {
                 Icons.person,
               ),
               title: const Text('Mahasiswa'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => const Mahasiswa())));
+              },
             ),
             ListTile(
               leading: const Icon(
                 Icons.group,
               ),
               title: const Text('Dosen'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.train,
-              ),
-              title: const Text('Staf'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) => const Dosen())));
+              },
             ),
             ListTile(
               leading: const Icon(
                 Icons.calendar_today,
               ),
               title: const Text('Jadwal'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) => const Jadwal())));
+              },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.login,
+              ),
+              title: const Text('Login'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) => const Login())));
+              },
             ),
           ],
         ),
